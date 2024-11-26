@@ -1,0 +1,67 @@
+/******************************************************************************
+
+Name: Dmitriy Piluyev
+Project: MO 9 Assignment
+Class: CISP 360
+
+*******************************************************************************/
+#include <iostream>
+#include <limits>
+#include "MovieHeader.h"
+using namespace std;
+
+// Function to validate and get a valid integer input for the year
+int getValidatedYear() {
+    int year;
+    while (true) {
+  cin >> year; // Take user input
+  // check if the input is outside the range
+  if (cin.fail() || year < 1888 || year > 2100) {  
+   cin.clear(); // Clear the error flag
+  cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignore invalid input
+  cout << "Invalid input. Please enter a valid year: ";
+   } else {
+  cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Clear remaining input
+  return year; // Return valid year
+  }
+    }
+}
+
+int main() {
+    // Variables to hold movie details entered by the user
+    string title, director, genre, actors;
+    int year;
+
+    // Prompt the user for movie details
+    cout << "Create a Movie Record" << endl;
+    cout << "Please Enter Movie Information" << endl;
+
+    cout << "Title? ";
+    getline(cin, title); // Get the title of the movie
+
+    cout << "Year Of Release YYYY? ";
+    year = getValidatedYear(); // Get the year with validation
+
+    cout << "Director? ";
+    getline(cin, director); // Get the director's name
+
+    cout << "Genre? ";
+    getline(cin, genre); // Get the genre of the movie
+
+    cout << "Actors? ";
+    getline(cin, actors); // Get the list of actors
+
+    // Create a Movie object with the input details
+    Movie myMovie(title, year, director, genre, actors);
+
+    // Display the movie record
+    cout << "\nCreating Movie Record\nHere is your movie:\n" << endl;
+    cout << "Title: " << myMovie.getTitle() << endl;
+    cout << "Year Of Release: " << myMovie.getYear() << endl;
+    cout << "Director: " << myMovie.getDirector() << endl;
+    cout << "Genre: " << myMovie.getGenre() << endl;
+    cout << "Actors: " << myMovie.getActors() << endl;
+
+    return 0; // End of program
+}
+
