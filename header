@@ -1,0 +1,36 @@
+#ifndef MOVIEHEADER_H
+#define MOVIEHEADER_H
+
+#include <string>
+using namespace std;
+
+// The Movie class represents a movie record with details such as title, year, director, genre, and actors.
+class Movie {
+private:
+    string title;          // Full title of the movie
+    int yearOfRelease;     // Year the movie was released
+    string director;       // Name of the movie's director
+    string genre;          // Genre of the movie
+    string actors;         // Names of the actors in the movie
+
+public:
+    // Constructor: Initializes a Movie object with the given parameters
+    Movie(string title, int year, string director, string genre, string actors);
+
+    // Getters: Retrieve information about the movie
+    string getTitle() const;       // Returns the movie's title
+    int getYear() const;           // Returns the year of release
+    string getDirector() const;    // Returns the name of the director
+    string getGenre() const;       // Returns the genre of the movie
+    string getActors() const;      // Returns the list of actors
+
+    // Setters: Update information about the movie
+    void setTitle(string title);   // Sets the movie's title
+    void setYear(int year);        // Sets the year of release
+    void setDirector(string director); // Sets the name of the director
+    void setGenre(string genre);   // Sets the movie's genre
+    void setActors(string actors); // Sets the list of actors
+};
+
+#endif
+
